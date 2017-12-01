@@ -37,7 +37,7 @@
     <hr />
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
-    <!--<h3 th:text="${#lists.size(jobs)} + ' Result(s)'"></h3>-->
+    <h3 th:if="${num_jobs}" th:text="${num_jobs} + ' Result(s)'"></h3>
     <table th:class="job-listing" th:each="job : ${jobs}">
         <tr th:each="field : ${job}">
             <td th:text="${#strings.capitalizeWords(field.key)}"></td>

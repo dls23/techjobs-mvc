@@ -31,10 +31,13 @@ public class SearchController {
 
         if (searchType.equals("all")){
             model.addAttribute("jobs", JobData.findByValue(searchTerm));
+            model.addAttribute("num_jobs", JobData.findByValue(searchTerm).size());
         }
         else {
             model.addAttribute("jobs", JobData.findByColumnAndValue(searchType, searchTerm));
+            model.addAttribute("num_jobs", JobData.findByColumnAndValue(searchType, searchTerm).size());
         }
+
         return "search";
     }
 }
